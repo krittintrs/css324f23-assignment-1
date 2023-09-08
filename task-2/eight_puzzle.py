@@ -53,16 +53,15 @@ def h1(s):
 
 def h3(s):
     # implement this function
-    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
     result = 0
 
     for idx in range(0, 9):
         if (board[idx] != 0):
-            if ((board[idx]-1)//3 != (goal[idx]-1)//3): 
+            if ((board[idx]-1)//3 != idx//3): 
                 # row diff
                 result += 1
-            if ((board[idx])%3 != goal[idx]%3): 
+            if ((board[idx]-1)%3 != idx%3): 
                 # col diff
                 result += 1
 
