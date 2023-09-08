@@ -43,12 +43,27 @@ def h1(s):
     # The for loop counts the number of elements that is different from
     # the goal configuration.
     # We start from index 1 to 8 because the blank is excluded.
-    for idx in range(1, 9):
+
+    # Isn't it should be index 0 to 7 to check for number 1 to 8
+    # because Python index start from 0?
+    for idx in range(0, 8):
         if goal[idx] != board[idx]:
             res += 1
     return res
 
 def h3(s):
     # implement this function
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
-    return 0
+    result = 0
+
+    for idx in range(0, 9):
+        if (board[idx] != 0):
+            if ((board[idx]-1)//3 != (goal[idx]-1)//3): 
+                # row diff
+                result += 1
+            if ((board[idx])%3 != goal[idx]%3): 
+                # col diff
+                result += 1
+
+    return result
